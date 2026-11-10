@@ -1,0 +1,33 @@
+# Secrets and keys
+*.key
+*.pem
+*.pub
+id_*
+*.env
+.env
+secrets/
+authkey*
+tailscale-authkey*
+
+# Raw, unsanitized exports (only commit sanitized copies)
+raw/
+unsanitized/
+*.log
+
+# Media files (never commit these)
+*.mkv
+*.mp4
+*.avi
+*.mov
+*.iso
+*.vdi
+*.vmdk
+*.ova
+
+# OS and editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
