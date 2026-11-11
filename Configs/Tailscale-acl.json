@@ -1,0 +1,30 @@
+{
+	"tagOwners": {
+		"tag:server": ["autogroup:admin"],
+	},
+
+	"grants": [
+		// Pass all traffic through Tailscale so Debian's UFW can handle the rejection
+		{
+			"src": ["*"],
+			"dst": ["*"],
+			"ip":  ["*"],
+		},
+	],
+
+	"ssh": [
+		{
+			"action": "check",
+			"src":    ["autogroup:member"],
+			"dst":    ["autogroup:self"],
+			"users":  ["autogroup:nonroot", "root"],
+		},
+	],
+
+	"nodeAttrs": [
+		{
+			"target": ["autogroup:member"],
+			"attr":   ["funnel"],
+		},
+	],
+}

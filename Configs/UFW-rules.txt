@@ -1,0 +1,10 @@
+root@debian:"#ufw status verbose
+Status: active
+Logging: on ( low)
+Default: reject ( incoming) , allow (outgoing) , disabled (routed)
+New profiles: skip
+To		Action		From
+8096/tcp	ALLOW IN	Anywhere
+22/tcp		ALLOW IN	Anywhere
+8096/tcp (v6)	ALLOW IN	Anywhere (v6)
+22/tcp (v6)	ALLOW IN	Anywhere (v6)
