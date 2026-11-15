@@ -18,7 +18,7 @@ Format for each entry: Symptom > Diagnosis > Fix > Lesson.
 - Symptom: The VM ran out of space after copying a video file.
 - Diagnosis: The 20 GB OS disk was too small for the library.
 - Fix: Added a second virtual disk (about 200 GB), formatted it as ext4, mounted it by UUID, and moved data with `rsync`.
-- Lesson: Size the data disk before loading data. A full disk during a copy can also leave a truncated file, so I verify file size after transfers.
+- Lesson: A full disk during a copy can leave a truncated file, so I now check file size after transfers.
 
 ---
 
@@ -44,7 +44,7 @@ Format for each entry: Symptom > Diagnosis > Fix > Lesson.
 
 - Symptom: After adding a disk and running an update, the VM showed progress bars and then powered off, every boot.
 - Diagnosis:
-  - The VirtualBox log (hypervisor level) showed a guest-unresponsive warning of about 222 seconds, followed by a suspend and then a power-off request issued through the VirtualBox window. The guest had not shut itself down; the VM was powered off from the GUI after it appeared frozen.
+  - The VirtualBox log (hypervisor level) showed a guest-unresponsive warning of about 222 seconds, followed by a suspend and then a power-off request issued through the VirtualBox window. The log showed a power-off request from the VirtualBox window, not a shutdown from inside the guest, so the VM may have been closed while it appeared frozen.
   - The guest journal (`journalctl -b -1 -p err`) showed GNOME and virtual-graphics-driver errors, which meant the install included a full desktop environment I did not need on a server.
 - Fix: Rebuilt the VM from the Debian netinst ISO, unchecked every desktop option, and kept only the SSH server and standard utilities. The data disk was left untouched during the reinstall.
 - Root cause: Not fully confirmed. The slow boot and graphics errors were consistent with a desktop environment struggling in a VM, but I did not isolate a single cause.
