@@ -44,4 +44,4 @@ graph TD
     %% Storage mapping
     OSDisk -.->|"System files"| VM
     DataDisk -.->|"Bind mounts:<br/>/var/lib/jellyfin<br/>/var/cache/jellyfin<br/>/srv/media"| JF
-'''
+
